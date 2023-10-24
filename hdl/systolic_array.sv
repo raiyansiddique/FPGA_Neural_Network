@@ -56,6 +56,11 @@ module systolic_array
 
     generate
         for (genvar col = 0; col<BCOL; col++) begin
+            wire [BROW][N-1:0]b_col;
+            for (genvar row = 0; row<BROW; row++) begin
+               assign b_col[row] = b[row][col];
+            end
+
             shifter
             #(
                .N(N),
@@ -66,7 +71,7 @@ module systolic_array
                 .rst(rst),
                 .ena(b_ena[col]),
                 .valid(valid),
-                .a(b[col]),
+                .a(b_col),
                 .out(b_shift[col]),
                 .ena_next(b_ena[col+1])
             );
@@ -87,8 +92,8 @@ module systolic_array
                 .rst(rst),
                 .a(a_con[row][col]),
                 .b(b_con[row][col]),
-                .a_out(a_con[row][col + 1]),
-                .b_out(b_con[row + 1][col]),
+                .a_out(a_con[row][col+1]),
+                .b_out(b_con[row+1][col]),
                 .c_out(sys_array[row][col])
             ); 
         end

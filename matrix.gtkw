@@ -1,0 +1,59 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Tue Oct 24 00:05:14 2023
+[*]
+[dumpfile] "/home/raiyan/FPGA_Neural_Network/systolic_array.fst"
+[dumpfile_mtime] "Mon Oct 23 23:11:55 2023"
+[dumpfile_size] 4336
+[savefile] "/home/raiyan/FPGA_Neural_Network/matrix.gtkw"
+[timestart] 0
+[size] 1850 1006
+[pos] -151 -151
+*-13.000000 11140 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] systolic_array_tb.
+[treeopen] systolic_array_tb.UUT.
+[treeopen] systolic_array_tb.UUT.genblk5[0].
+[treeopen] systolic_array_tb.UUT.genblk5[0].BLOCKS[0].
+[treeopen] systolic_array_tb.UUT.genblk5[0].BLOCKS[1].
+[treeopen] systolic_array_tb.UUT.genblk5[0].BLOCKS[2].
+[treeopen] systolic_array_tb.UUT.genblk5[0].BLOCKS[3].
+[treeopen] systolic_array_tb.UUT.genblk5[1].
+[treeopen] systolic_array_tb.UUT.genblk5[1].BLOCKS[0].
+[treeopen] systolic_array_tb.UUT.genblk5[1].BLOCKS[1].
+[treeopen] systolic_array_tb.UUT.genblk5[1].BLOCKS[2].
+[treeopen] systolic_array_tb.UUT.genblk5[1].BLOCKS[3].
+[treeopen] systolic_array_tb.UUT.genblk5[2].
+[treeopen] systolic_array_tb.UUT.genblk5[2].BLOCKS[0].
+[treeopen] systolic_array_tb.UUT.genblk5[2].BLOCKS[1].
+[treeopen] systolic_array_tb.UUT.genblk5[2].BLOCKS[2].
+[treeopen] systolic_array_tb.UUT.genblk5[2].BLOCKS[3].
+[treeopen] systolic_array_tb.UUT.genblk5[3].
+[treeopen] systolic_array_tb.UUT.genblk5[3].BLOCKS[0].
+[treeopen] systolic_array_tb.UUT.genblk5[3].BLOCKS[1].
+[treeopen] systolic_array_tb.UUT.genblk5[3].BLOCKS[2].
+[treeopen] systolic_array_tb.UUT.genblk5[3].BLOCKS[3].
+[sst_width] 297
+[signals_width] 118
+[sst_expanded] 1
+[sst_vpaned_height] 299
+@24
+systolic_array_tb.UUT.genblk5[0].BLOCKS[0].BLOCK.c_out[31:0]
+systolic_array_tb.UUT.genblk5[0].BLOCKS[1].BLOCK.c_out[31:0]
+systolic_array_tb.UUT.genblk5[0].BLOCKS[2].BLOCK.c_out[31:0]
+systolic_array_tb.UUT.genblk5[0].BLOCKS[3].BLOCK.c_out[31:0]
+systolic_array_tb.UUT.genblk5[1].BLOCKS[0].BLOCK.c_out[31:0]
+systolic_array_tb.UUT.genblk5[1].BLOCKS[1].BLOCK.c_out[31:0]
+systolic_array_tb.UUT.genblk5[1].BLOCKS[2].BLOCK.c_out[31:0]
+systolic_array_tb.UUT.genblk5[1].BLOCKS[3].BLOCK.c_out[31:0]
+systolic_array_tb.UUT.genblk5[2].BLOCKS[0].BLOCK.c_out[31:0]
+systolic_array_tb.UUT.genblk5[2].BLOCKS[1].BLOCK.c_out[31:0]
+systolic_array_tb.UUT.genblk5[2].BLOCKS[2].BLOCK.c_out[31:0]
+systolic_array_tb.UUT.genblk5[2].BLOCKS[3].BLOCK.c_out[31:0]
+systolic_array_tb.UUT.genblk5[3].BLOCKS[0].BLOCK.c_out[31:0]
+systolic_array_tb.UUT.genblk5[3].BLOCKS[1].BLOCK.c_out[31:0]
+systolic_array_tb.UUT.genblk5[3].BLOCKS[2].BLOCK.c_out[31:0]
+systolic_array_tb.UUT.genblk5[3].BLOCKS[3].BLOCK.c_out[31:0]
+@29
+systolic_array_tb.UUT.genblk5[3].BLOCKS[3].BLOCK.clk
+[pattern_trace] 1
+[pattern_trace] 0
