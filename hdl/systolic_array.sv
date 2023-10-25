@@ -58,7 +58,7 @@ module systolic_array
         for (genvar col = 0; col<BCOL; col++) begin
             wire [BROW][N-1:0]b_col;
             for (genvar row = 0; row<BROW; row++) begin
-               assign b_col[row] = b[row][col];
+               assign b_col[BROW - row - 1] = b[row][col];
             end
 
             shifter
