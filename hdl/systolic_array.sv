@@ -7,7 +7,8 @@ module systolic_array
         parameter AROW = 3,
         parameter ACOL = 3,
         parameter BROW = 3,
-        parameter BCOL = 3
+        parameter BCOL = 3,
+        parameter FIXED_POINT_POSITION = 10
     )
     (
         input wire clk,
@@ -15,7 +16,7 @@ module systolic_array
         input wire valid,
         input wire [AROW-1:0][ACOL-1:0][N-1:0] a,
         input wire [BROW-1:0][BCOL-1:0][N-1:0] b,
-        output logic [AROW-1:0][BCOL-1:0][2*N-1:0] sys_array
+        output logic [AROW-1:0][BCOL-1:0][N-1:0] sys_array
     );
     logic [AROW:0][BCOL:0][N-1:0] a_con;
     logic [AROW:0][BCOL:0][N-1:0] b_con;
@@ -85,7 +86,8 @@ module systolic_array
             
             block
             #(
-                .N(N)
+                .N(N),
+                .FIXED_POINT_POSITION(FIXED_POINT_POSITION)
             ) BLOCK
             (
                 .clk(clk),

@@ -4,6 +4,7 @@
 module systolic_array_tb;
 
     parameter CLK_PERIOD_NS = 5;
+    parameter FIXED_POINT_POSITION = 4;
     parameter N = 16;
     parameter AROW = 4;  // Changed from 3 to 4
     parameter ACOL = 4;  // Changed from 3 to 4
@@ -15,14 +16,16 @@ module systolic_array_tb;
     logic valid;
     logic [AROW-1:0][ACOL-1:0][N-1:0] a;
     logic [BROW-1:0][BCOL-1:0][N-1:0] b;
-    wire [AROW-1:0][BCOL-1:0][2*N-1:0] sys_array;
+    wire [AROW-1:0][BCOL-1:0][N-1:0] sys_array;
     always #(CLK_PERIOD_NS/2) clk = ~clk;
 
     systolic_array #(.N(N),
     .AROW(AROW),
     .ACOL(ACOL),
     .BROW(BROW),
-    .BCOL(BCOL))
+    .BCOL(BCOL),
+    .FIXED_POINT_POSITION(FIXED_POINT_POSITION)
+    )
     UUT(
         .*
     );
@@ -40,17 +43,43 @@ module systolic_array_tb;
         rst = 1'b0;
         valid = 1;
 
-        // Initialize 4x4 matrix 'a'
-        a[0][0] = 16'd1; a[0][1] = 16'd2; a[0][2] = 16'd3; a[0][3] = 16'd4;
-        a[1][0] = 16'd5; a[1][1] = 16'd6; a[1][2] = 16'd7; a[1][3] = 16'd8;
-        a[2][0] = 16'd9; a[2][1] = 16'd10; a[2][2] = 16'd11; a[2][3] = 16'd12;
-        a[3][0] = 16'd13; a[3][1] = 16'd14; a[3][2] = 16'd15; a[3][3] = 16'd16;
+        // Initialize 4x4 matrix 'a' with signed fixed-point numbers
+        a[0][0] = 16'sd16;    // 1.0 in fixed-point
+        a[0][1] = 16'sd32;    // 2.0 in fixed-point
+        a[0][2] = 16'sd48;    // 3.0 in fixed-point
+        a[0][3] = 16'sd64;    // 4.0 in fixed-point
+        a[1][0] = 16'sd80;    // 5.0 in fixed-point
+        a[1][1] = 16'sd96;    // 6.0 in fixed-point
+        a[1][2] = 16'sd112;   // 7.0 in fixed-point
+        a[1][3] = 16'sd128;   // 8.0 in fixed-point
+        a[2][0] = 16'sd144;   // 9.0 in fixed-point
+        a[2][1] = 16'sd160;   // 10.0 in fixed-point
+        a[2][2] = 16'sd176;   // 11.0 in fixed-point
+        a[2][3] = 16'sd192;   // 12.0 in fixed-point
+        a[3][0] = 16'sd208;   // 13.0 in fixed-point
+        a[3][1] = 16'sd224;   // 14.0 in fixed-point
+        a[3][2] = 16'sd240;   // 15.0 in fixed-point
+        a[3][3] = 16'sd256;   // 16.0 in fixed-point
 
-        // Initialize 4x4 matrix 'b'
-        b[0][0] = 16'd17; b[0][1] = 16'd18; b[0][2] = 16'd19; b[0][3] = 16'd20;
-        b[1][0] = 16'd21; b[1][1] = 16'd22; b[1][2] = 16'd23; b[1][3] = 16'd24;
-        b[2][0] = 16'd25; b[2][1] = 16'd26; b[2][2] = 16'd27; b[2][3] = 16'd28;
-        b[3][0] = 16'd29; b[3][1] = 16'd30; b[3][2] = 16'd31; b[3][3] = 16'd32;
+        // Initialize 4x4 matrix 'b' with signed fixed-point numbers
+        b[0][0] = 16'sd272;   // 17.0 in fixed-point
+        b[0][1] = 16'sd288;   // 18.0 in fixed-point
+        b[0][2] = 16'sd304;   // 19.0 in fixed-point
+        b[0][3] = 16'sd320;   // 20.0 in fixed-point
+        b[1][0] = 16'sd336;   // 21.0 in fixed-point
+        b[1][1] = 16'sd352;   // 22.0 in fixed-point
+        b[1][2] = 16'sd368;   // 23.0 in fixed-point
+        b[1][3] = 16'sd384;   // 24.0 in fixed-point
+        b[2][0] = 16'sd400;   // 25.0 in fixed-point
+        b[2][1] = 16'sd416;   // 26.0 in fixed-point
+        b[2][2] = 16'sd432;   // 27.0 in fixed-point
+        b[2][3] = 16'sd448;   // 28.0 in fixed-point
+        b[3][0] = 16'sd464;   // 29.0 in fixed-point
+        b[3][1] = 16'sd480;   // 30.0 in fixed-point
+        b[3][2] = 16'sd496;   // 31.0 in fixed-point
+        b[3][3] = 16'sd512;   // 32.0 in fixed-point
+
+
         
         repeat(1) @(negedge clk);
         valid = 0;
